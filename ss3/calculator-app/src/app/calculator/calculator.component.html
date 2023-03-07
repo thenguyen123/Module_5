@@ -1,0 +1,11 @@
+<input type="number" [(ngModel)]="number1">
+
+<select [(ngModel)]="choose">
+  <option value="add"> +</option>
+  <option value="subtraction">-</option>
+  <option value="division">/</option>
+  <option value="multiplication">*</option>
+</select>
+<input type="number" [(ngModel)]="number2">
+<p>Kết quả:{{result}}</p>
+<button (click)="resultCalculator()">SAVE</button>
