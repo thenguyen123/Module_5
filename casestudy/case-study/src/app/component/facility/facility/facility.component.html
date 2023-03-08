@@ -1,102 +1,15 @@
 <app-header></app-header>
 <div class="row">
-  <div class="col 12 col-md-3 col-sm-6">
+  <div class="col 12 col-md-3 col-sm-6" *ngFor="let f of facility">
     <div class="card" style="width: 18rem;">
-      <img src="../img/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" class="card-img-top" alt="...">
+      <img [src]="f.img" class="card-img-top" alt="...">
 
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
+        <h5 class="card-title">{{f.name}}</h5>
+        <p class="card-text">{{f.cost}}</p>
         <button type="button" class="btn btn-primary" data-bs-target="#edit" data-bs-toggle="modal">Create
         </button>
 
-      </div>
-    </div>
-  </div>
-  <div class="col 12 col-md-3 col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <img src="../img/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <button type="button" class="btn btn-primary" data-bs-target="#edit" data-bs-toggle="modal">Create
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col 12 col-md-3 col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <img src="../img/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <button type="button" class="btn btn-primary" data-bs-target="#edit" data-bs-toggle="modal">Create
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col 12 col-md-3 col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <img src="../img/Vietnam_Danang_Furama_Ocean-Suite-Feature-370x239.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <button type="button" class="btn btn-primary" data-bs-target="#edit" data-bs-toggle="modal">Create
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <div class="col 12 col-md-3 col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <img src="../img/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <button type="button" class="btn btn-primary" data-bs-target="#edit" data-bs-toggle="modal">Create
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col 12 col-md-3 col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <img src="../img/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <button type="button" class="btn btn-primary" data-bs-target="#edit" data-bs-toggle="modal">Create
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col 12 col-md-3 col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <img src="../img/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <button type="button" class="btn btn-primary" data-bs-target="#edit" data-bs-toggle="modal">Create
-        </button>
-      </div>
-    </div>
-  </div>
-  <div class="col 12 col-md-3 col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <img src="../img/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-_Exterior-1-F-370x239.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-          content.</p>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-          Create
-        </button>
       </div>
     </div>
   </div>
