@@ -1,0 +1,59 @@
+<form [formGroup]="register" (ngSubmit)="add()">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" class="form-control" name="" id="email" formControlName="email">
+    <p *ngIf="register.controls.email.touched && register.controls.email?.errors?.required">Email không được để trống</p>
+    <p *ngIf="register.controls.email.touched && register.controls.email?.errors?.email">Email chưa đúng định dạng</p>
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="text" class="form-control" id="password"  formControlName="password">
+    <p *ngIf="register.controls.password.touched && register.controls.password?.errors?.minlength">mật khảu ít nhất phải 6 chữ cái</p>
+    <p *ngIf="register.controls.password.touched && register.controls.password?.errors?.required">Mật khẩu không được để trống</p>
+  </div>
+
+  <div class="mb-3">
+    <label for="confirmPassword" class="form-label">Confirm Password</label>
+    <input type="text" class="form-control" id="confirmPassword"
+           formControlName="confirmPassword">
+    <p *ngIf="register.controls.confirmPassword.touched && register.controls.confirmPassword?.errors?.minlength">mật khảu ít nhất phải 6 chữ cái</p>
+    <p *ngIf="register.controls.confirmPassword.touched && register.controls.confirmPassword?.errors?.required">Mật khẩu không được để trống</p>
+    <p *ngIf="register.controls.confirmPassword.touched && register.controls.confirmPassword?.value!=register.controls.password?.value">Bạn nhập chưa đúng mật khẩu </p>
+  </div>
+
+  <div class="mb-3">
+
+    <label class="form-label">Country</label>
+
+    <select formControlName="country">
+      <option>Type</option>
+      <option value="1">Việt nam</option>
+      <option value="2">lào</option>
+      <option value="3">Usa</option>
+    </select>
+    <p *ngIf="register.controls.country.pristine && register.controls.country?.errors?.required">chon đất nước của bạn</p>
+
+  </div>
+  <div class="mb-3">
+    <label for="age" class="form-label">Age</label>
+    <input type="number" class="form-control" id="age" formControlName="age">
+    <p *ngIf="register.controls.age.touched && register.controls.age?.errors?.required">Bạn phải nhập tuổi</p>
+    <p *ngIf="register.controls.age.touched && register.controls.age?.errors?.invalidAge">bạn phải đủ 18 tuổi</p>
+  </div>
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="text" class="form-control" id="phone"  formControlName="phone">
+    <p *ngIf="register.controls.phone.touched && register.controls.phone?.errors?.required">Số điện thoại không được để trống</p>
+    <p *ngIf="register.controls.phone.touched && register.controls.phone?.errors?.pattern">Số điện thoại bắt đầu với +84, và theo sau là 9 đến 10 chữ số.</p>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Gender</label>
+    <input type="radio" formControlName="gender" value="true">Name
+    <input type="radio" formControlName="gender" value="false">Nữ
+    <p *ngIf="register.controls.gender.pristine && register.controls.gender?.errors?.required">chon đất nước của bạn</p>
+
+  </div>
+  <button type="submit" class="btn btn-outline-danger" [disabled]="register.invalid" >Save</button>
+</form>

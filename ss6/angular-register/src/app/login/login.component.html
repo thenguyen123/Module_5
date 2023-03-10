@@ -1,0 +1,17 @@
+<form [formGroup]="login" (ngSubmit)="loginUser()">
+<h4>Login</h4>
+<div class="mb-3">
+  <label for="email" class="form-label">Email</label>
+  <input type="email" class="form-control" name="" id="email" formControlName="email">
+  <p *ngIf="login.controls.email.touched && login.controls.email?.errors?.required">Email không được để trống</p>
+  <p *ngIf="login.controls.email.touched && login.controls.email?.errors?.email">Email chưa đúng định dạng</p>
+</div>
+
+<div class="mb-3">
+  <label for="password" class="form-label">Password</label>
+  <input type="text" class="form-control" id="password"  formControlName="password">
+  <p *ngIf="login.controls.password.touched && login.controls.password?.errors?.minlength">mật khảu ít nhất phải 6 chữ cái</p>
+  <p *ngIf="login.controls.password.touched && login.controls.password?.errors?.required">Mật khẩu không được để trống</p>
+</div>
+  <button class=" btn btn-outline-danger" [disabled]="login.invalid">Login</button>
+</form>
