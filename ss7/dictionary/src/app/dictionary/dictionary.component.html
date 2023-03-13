@@ -1,0 +1,18 @@
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Word</th>
+    <th>Detail</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let w of word; index as i">
+    <td scope="row">{{i+1}}</td>
+    <td>{{w.word}}</td>
+    <td><a routerLink="/dictionary/detail/{{w.word}}" class="btn btn-success">Detail</a></td>
+  </tr>
+  </tbody>
+</table>
+
