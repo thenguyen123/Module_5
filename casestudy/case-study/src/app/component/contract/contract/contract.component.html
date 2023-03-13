@@ -1,6 +1,7 @@
 <app-header></app-header>
-<table class="table table-row-cell">
+<table class="table table-striped ">
   <tr>
+    <th>STT</th>
     <th>Name Customer</th>
     <th>Name Facility</th>
     <th>End Day</th>
@@ -9,14 +10,16 @@
     <th>Total</th>
     <th>Attach Facility</th>
   </tr>
-  <tr>
-    <td>Nguyen Van A</td>
-    <td>Room</td>
-    <td>12/12/2001</td>
-    <td>12/12/2001</td>
-    <td>KHông có</td>
-    <td>700000</td>
+  <tr *ngFor="let c of contract;index as i">
+    <td>{{i+1}}</td>
+    <td>{{c.customerTypes.name}}</td>
+    <td>{{c.facility.name}}</td>
+    <td>{{c.endDate}}</td>
+    <td>{{c.startDate}}</td>
+    <td>{{c.deposit}}</td>
+    <td>222222</td>
     <td>+</td>
+
   </tr>
 </table>
 <app-footer></app-footer>

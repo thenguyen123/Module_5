@@ -5,7 +5,7 @@ export interface Contract {
   id?: number;
   startDate?: string;
   endDate?: string;
-  deposit?: string;
+  deposit?: number;
   customerTypes?: Customer;
   facility?: Facility;
   delete?: boolean;
