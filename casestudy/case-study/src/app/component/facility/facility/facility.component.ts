@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Facility} from './facility';
+import {Facility} from '../../../model/facility/facility';
 
 @Component({
   selector: 'app-facility',
@@ -11,17 +11,23 @@ export class FacilityComponent implements OnInit {
     {
       img: '../../../assets/img/kien-truc-furama-resort-da-nang-1024x680.jpg',
       name: 'room',
-      cost : 100000,
+      cost: 100000,
+      area: 100,
+      maxPeople: 3
     },
     {
       img: '../../../assets/img/kien-truc-furama-resort-da-nang-1024x680.jpg',
       name: 'Villa',
-      cost : 1000020,
+      cost: 1000020,
+      area: 100,
+      maxPeople: 3
     },
     {
       img: '../../../assets/img/kien-truc-furama-resort-da-nang-1024x680.jpg',
       name: 'Villa',
-      cost : 1000020,
+      cost: 1000020,
+      area: 100,
+      maxPeople: 3
     }
   ]
 

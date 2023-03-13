@@ -1,5 +1,5 @@
 <app-header></app-header>
-<table class="table table-row-cell">
+<table class="table table-primary">
   <tr>
     <th>STT</th>
     <th>Name</th>
@@ -13,18 +13,31 @@
     <th>Delete</th>
     <th>Edit</th>
   </tr>
-  <tr>
+  <tr *ngFor="let c of customers; index as i">
+    <td>{{i +1}}</td>
+    <td>{{c.name}}</td>
+    <td>{{c.idCard}}</td>
+    <td>{{c.address}}</td>
+    <td>{{c.email}}</td>
+    <td   >
+      <ng-container *ngIf="c.gender">
+        Nam
+      </ng-container  >
+      <ng-container *ngIf="!c.gender">
+        Nữ
+      </ng-container>
+
+    </td>
+    <td>{{c.phone}}</td>
+    <td>{{c.birthday}}</td>
     <td>1</td>
-    <td>Nguyen Van A</td>
-    <td>0246749225</td>
-    <td>Đà Lạt</td>
-    <td>nguyena@gmail.com</td>
-    <td>nam</td>
-    <td>09786245</td>
-    <td>22/12/2002</td>
-    <td>gold</td>
-    <td><button>Delete</button></td>
-    <td><button>edit</button></td>
+
+    <td>
+      <button class="btn btn-outline-warning">Delete</button>
+    </td>
+    <td>
+      <button class="btn btn-outline-warning">edit</button>
+    </td>
   </tr>
 </table>
 <app-footer></app-footer>
