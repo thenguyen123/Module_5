@@ -1,4 +1,4 @@
-<app-header></app-header>
+<a routerLink="/customer/create" class="btn btn-outline-warning">Create</a>
 <table class="table table-primary">
   <tr>
     <th>STT</th>
@@ -30,8 +30,7 @@
     </td>
     <td>{{c.phone}}</td>
     <td>{{c.birthday}}</td>
-    <td>1</td>
-
+    <td>{{c.customerType.name}}</td>
     <td>
       <button class="btn btn-outline-warning">Delete</button>
     </td>
@@ -40,4 +39,3 @@
     </td>
   </tr>
 </table>
-<app-footer></app-footer>

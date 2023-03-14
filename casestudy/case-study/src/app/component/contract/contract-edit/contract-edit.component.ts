@@ -23,6 +23,6 @@ contract: Contract;
   }
 
   edit() {
-    
+
   }
 }
