@@ -5,27 +5,41 @@
     <div class=" col-md-6 ">
 
       <h3 style=" text-align: center" class="fw-light">Create Customer</h3>
-      <form method="post">
+      <form [formGroup]="customer" (ngSubmit)="customerSave()" *ngIf="customer">
 
         <span class="text"> Name</span>
-        <input class="form-control" type="text" required>
+        <input class="form-control" type="text" formControlName="name" >
+        <p *ngIf="customer.controls.name.touched&&customer.controls.name.errors.required">Không được để trống </p>
+         <p *ngIf="customer.controls.name.touched&&customer.controls.name.errors.pattern">Tên Không được chứa số </p>
+
         <br>
 
         <span class="text">Day Of Brith</span>
-        <input class="form-control" type="date" required>
-        <p style="color: red"></p>
+        <input class="form-control" type="date" formControlName="birthday" >
+        <p *ngIf="customer.controls.birthday.touched&&customer.controls.birthday.errors.required">Không được để trống </p>
+
         <br>
         <span class="text">Id Card</span>
-        <input class="form-control" type="text" required>
+        <input class="form-control" formControlName="idCard" type="text" >
+        <p *ngIf="customer.controls.idCard.touched&&customer.controls.idCard.errors.required">Không được để trống </p>
+        <p *ngIf="customer.controls.idCard.touched&&customer.controls.idCard.errors.pattern">Không được chứa chữ</p>
+
         <br>
         <span class="text">Phone Number</span>
-        <input class="form-control" type="text" required>
+        <input class="form-control" type="text"  formControlName="phone">
+        <p *ngIf="customer.controls.idCard.touched&&customer.controls.idCard.errors.required">Không được để trống </p>
+        <p *ngIf="customer.controls.idCard.touched&&customer.controls.idCard.errors.required">Số điện thoại chưa  đúng định dạng </p>
+
         <br>
         <span class="text">Email</span>
-        <input class="form-control" type="email" required>
+        <input class="form-control" type="email" formControlName="email">
+        <p *ngIf="customer.controls.email.touched&&customer.controls.email.errors.required">Không được để trống </p>
+        <p *ngIf="customer.controls.email.touched&&customer.controls.email.errors.email">Chưa đúng định dạng</p>
+
         <br>
         <span class="text">Address</span>
-        <input class="form-control" type="text">
+        <input class="form-control" type="text" formControlName="address">
+        <p *ngIf="customer.controls.address.touched&&customer.controls.address.errors.required">Không được để trống </p>
         <br>
         <span class="text">Type</span>
         <select>
@@ -36,8 +50,9 @@
 
         <br>
         <span class="radio">Gender</span>
-        <input type="radio">
-        <input type="radio">
+        <input type="radio"  formControlName="gender">Nam
+        <input type="radio" formControlName="gender">Nữ
+        <p *ngIf="customer.controls.gender.pristine&&customer.controls.gender.errors.required">Không được để trống </p>
         <hr>
         <button class="btn btn-primary">Save</button>
         <button class="btn btn-primary" type="button" data-bs-dismiss="modal"><a>close</a></button>

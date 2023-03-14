@@ -1,7 +1,7 @@
 <app-header></app-header>
         <h1 class="modal-title fs-5" id="exampleModalLabel">Create</h1>
       <div class="body">
-        <form method="post">
+        <form [formGroup]="facilityForm" (ngSubmit)="save()">
           <div class="row">
             <div class="col-md-4">
               <button type="button" class="btn btn-primary" onclick="addVilla()">Villa
@@ -16,14 +16,14 @@
               </button>
             </div>
           </div>
-          <hr>
           <input id="facilityType" hidden>
           <div class="row">
             <div class="col-md-3">
               <p>Name</p>
             </div>
             <div class="col-md-9">
-              <input  type="text">
+              <input formControlName="name" type="text" >
+              <p *ngIf="facilityForm.controls.name.touched&&facilityForm.controls.name.errors.required">không được để trống trường này </p>
             </div>
 
           </div>
@@ -32,7 +32,10 @@
               <p>Area</p>
             </div>
             <div class="col-md-9">
-              <input type="number">
+              <input formControlName="area" type="number" >
+              <p *ngIf="facilityForm.controls.area.touched&&facilityForm.controls.area.errors.min">Số phải lớn hơn 0 </p>
+              <p *ngIf="facilityForm.controls.area.touched&&facilityForm.controls.area.errors.required">không được để trống trường này </p>
+
             </div>
 
           </div>
@@ -41,7 +44,9 @@
               <p>Cost</p>
             </div>
             <div class="col-md-9">
-              <input type="number">
+              <input formControlName="cost" type="number">
+              <p *ngIf="facilityForm.controls.cost.touched&&facilityForm.controls.cost.errors.min">Số phải lớn hơn 0 </p>
+              <p *ngIf="facilityForm.controls.cost.touched&&facilityForm.controls.cost.errors.required">không được để trống
             </div>
 
           </div>
@@ -51,6 +56,8 @@
             </div>
             <div class="col-md-9">
               <input  type="number">
+              <p *ngIf="facilityForm.controls.maxPeople.touched&&facilityForm.controls.maxPeople.errors.min">Số phải lớn hơn 0 </p>
+              <p *ngIf="facilityForm.controls.maxPeople.touched&&facilityForm.controls.maxPeople.errors.required">không được để trống
             </div>
 
           </div>
@@ -60,8 +67,7 @@
             </div>
             <div class="col-md-9">
               <select>
-                <option
-                ></option>
+                <option></option>
               </select>
             </div>
 
@@ -71,7 +77,8 @@
               <p>Stand Room</p>
             </div>
             <div class="col-md-9">
-              <input  type="text">
+              <input formControlName="standRoom" type="text">
+              <p *ngIf="facilityForm.controls.standRoom.touched&&facilityForm.controls.standRoom.errors.required">không được
             </div>
           </div>
           <div class="row" id="descriptionOtherConvenience">
@@ -79,7 +86,9 @@
               <p>Description other convenience</p>
             </div>
             <div class="col-md-9">
-              <input  type="text">
+              <input formControlName="descriptionOtherConvenience" type="text">
+              <p *ngIf="facilityForm.controls.descriptionOtherConvenience.touched&&facilityForm.controls.descriptionOtherConvenience.errors.required">không được
+
             </div>
           </div>
           <div class="row" id="poolArea">
@@ -87,13 +96,15 @@
               <p>Pool Area</p>
             </div>
             <div class="col-md-9">
-              <input type="text">
-
+              <input formControlName="poolArea" type="text">
+              <p *ngIf="facilityForm.controls.poolArea.touched&&facilityForm.controls.poolArea.errors.min">Số phải lớn hơn 0 </p>
             </div>
           </div>
           <div class="row" id="numberOfFloors">
             <div class="col-md-3">
               <p>Number Of Floors</p>
+              <p *ngIf="facilityForm.controls.numberOfFloors.touched&&facilityForm.controls.numberOfFloors.errors.min">Số phải lớn hơn 0 </p>
+
             </div>
             <div class="col-md-9">
               <input  type="text">

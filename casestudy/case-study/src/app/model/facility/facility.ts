@@ -14,5 +14,5 @@ export interface Facility {
   descriptionOtherConvenience?: string;
   poolArea?: number;
   numberOfFloors?: number;
-  facilityText?: string;
+  facilityFree?: string;
 }

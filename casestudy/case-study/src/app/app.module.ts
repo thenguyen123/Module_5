@@ -15,6 +15,7 @@ import { FacilityEditComponent } from './component/facility/facility-edit/facili
 import { FacilityCreateComponent } from './component/facility/facility-create/facility-create.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { HeaderComponent } from './component/header/header.component';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { HeaderComponent } from './component/header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
