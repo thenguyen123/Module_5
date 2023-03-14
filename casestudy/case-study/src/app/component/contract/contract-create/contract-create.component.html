@@ -8,19 +8,20 @@
       </div>
       <div class="col-md-9">
         <input formControlName="startDate" class="form-control" id="startDay" min="2022-12-22"
-               data-date-format="DD MMMM YYYY"
-               type="date"
-        />
+               data-date-format="DD MMMM YYYY" type="date"/>
 
+        <p *ngIf="contractForm.controls.startDate.touched&&contractForm.controls.startDate.errors.required">Không được
+          để trống</p>
       </div>
       <div class="col-md-3">
         <span>Ngày kết thúc</span>
       </div>
       <div class="col-md-9">
-        <input type="date" formControlName="startDate" class="form-control" id="endDay" oninput="checkDate()"
+        <input type="date" formControlName="endDate" class="form-control" id="endDay"
                title="Ngày theo định dạng DD/MM/YYYY">
+        <p *ngIf="contractForm.controls.endDate.touched&&contractForm.controls.endDate.errors.required">Không được để
+          trống</p>
 
-        <p style="color: red" id="showErrors"></p>
       </div>
 
       <div class="col-md-3">
@@ -28,6 +29,10 @@
       </div>
       <div class="col-md-9">
         <input type="number" formControlName="deposit" class="form-control" id="deposit">
+        <p *ngIf="contractForm.controls.deposit.touched&&contractForm.controls.deposit.errors.required">Không được để
+          trống</p>
+        <p *ngIf="contractForm.controls.deposit.touched&&contractForm.controls.deposit.errors.min">Không bé hơn 0</p>
+
       </div>
       <div class="col-md-3">
         <span>Tổng tiền</span>
@@ -43,14 +48,21 @@
         <select id="customer" formControlName="customerTypes">
           <option></option>
         </select>
+        <p *ngIf="contractForm.controls.customerTypes.touched&&contractForm.controls.customerTypes.errors.min">Không
+          được để trống</p>
+
+        <p></p>
       </div>
       <div class="col-3">
         <span>Dịch vụ</span>
       </div>
       <div class="col-9">
-        <select id="facility"formControlName=" facility">
+        <select id="facility" formControlName="facility">
           <option></option>
         </select>
+        <p *ngIf="contractForm.controls.facility.touched&&contractForm.controls.facility.errors.min">Không được để
+          trống</p>
+
       </div>
       <div class="col-md-4">
         <span>Dịch vụ đi kèm</span>
@@ -61,7 +73,7 @@
 
         <div class="row checkbox-list">
           <div class="col-md-6">
-            <input class="form-check-input check" type="checkbox" >
+            <input class="form-check-input check" type="checkbox">
           </div>
           <div class="col-md-3">
             <p>Quantity</p>
