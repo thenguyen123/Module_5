@@ -1,4 +1,4 @@
-export interface Iword {
+export interface Word {
   word?: string;
   mean?: string;
 }

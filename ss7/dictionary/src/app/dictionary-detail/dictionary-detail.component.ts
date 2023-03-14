@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {DictionaryServiceService} from '../service/dictionary-service.service';
+import {DictionaryService} from '../service/dictionary-service';
 import {ActivatedRoute} from '@angular/router';
-import {Iword} from '../iword';
+import {Word} from '../word';
 
 @Component({
   selector: 'app-dictionary-detail',
@@ -9,9 +9,9 @@ import {Iword} from '../iword';
   styleUrls: ['./dictionary-detail.component.css']
 })
 export class DictionaryDetailComponent implements OnInit {
-  word: Iword;
+  word: Word;
 
-  constructor(private dictionaryService: DictionaryServiceService,
+  constructor(private dictionaryService: DictionaryService,
               private activatedRoute: ActivatedRoute) {
   }
 

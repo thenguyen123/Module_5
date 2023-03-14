@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {Iword} from '../iword';
+import {Word} from '../word';
 
 @Injectable({
   providedIn: 'root'
 })
-export class DictionaryServiceService {
-  words: Iword[] = [
+export class DictionaryService {
+  words: Word[] = [
     {
       word: 'hello',
       mean: 'xin chào '
