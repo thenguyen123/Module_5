@@ -1,0 +1,8 @@
+<h1>Tao danh mục mới</h1>
+<form [formGroup]="categoryForm" (ngSubmit)="submit()">
+  <p>Nhập mã danh mục</p>
+  <input formControlName="id" type="number">
+  <p>tên danh mục</p>
+  <input formControlName="name" type="text">
+  <button class="btn btn-outline-warning">Save</button>
+</form>

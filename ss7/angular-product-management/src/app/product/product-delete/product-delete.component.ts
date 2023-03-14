@@ -10,7 +10,7 @@ import {Product} from '../../model/product';
 })
 export class ProductDeleteComponent implements OnInit {
   product: Product;
-   mess: string;
+  mess: string;
 
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private  route: Router) {
   }
@@ -18,12 +18,16 @@ export class ProductDeleteComponent implements OnInit {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       const id = parseInt(paramMap.get('id'), 10);
-      this.product = this.productService.findById(id);
+      this.productService.findById(id).subscribe(param => {
+        this.product = param;
+      });
     });
   }
 
   delete(id: number) {
-    this.productService.delete(id);
-    this.route.navigateByUrl('/product/list');
+    this.productService.delete(id).subscribe(() => {
+      alert('thành công');
+      this.route.navigateByUrl('/product/list');
+    });
   }
 }
