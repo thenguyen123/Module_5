@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {CustomerTypes} from '../../../model/customer/customer.types';
+import {CustomerType} from '../../../model/customer/customerType';
 import {CustomerService} from '../../../service/customer/customer.service';
 import {CustomerTypesService} from '../../../service/customer/customer-types.service';
 import {Customer} from '../../../model/customer/customer';
@@ -12,8 +12,9 @@ import {Customer} from '../../../model/customer/customer';
 })
 export class CustomerCreateComponent implements OnInit {
   customer: FormGroup;
-  customerTypes: CustomerTypes[];
-customerNew: Customer;
+  customerTypes: CustomerType[];
+  customerNew: Customer;
+
   constructor(private customerService: CustomerService, private customerTypesService: CustomerTypesService) {
   }
 
@@ -28,17 +29,18 @@ customerNew: Customer;
       phone: new FormControl('', [Validators.required, Validators.pattern('^(090\\d{7}|091\\d{7}|\\(84\\)\\+91\\d{7}|\\(84\\)\\+90\\d{7})$')]),
       email: new FormControl('', [Validators.required, Validators.email]),
       address: new FormControl('', [Validators.required]),
-      delete: new FormControl('', [Validators.required]),
-      customerType: new FormControl('', [Validators.required]),
+      customerType: new FormControl(this.customerTypes)
     });
   }
 
 
   customerSave() {
+
     this.customerNew = this.customer.value;
     this.customerService.save(this.customerNew).subscribe(() => {
       alert('Bạn đã thêm thành công');
       this.customer.reset();
+
     });
   }
 

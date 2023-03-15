@@ -14,28 +14,51 @@
     <th>Edit</th>
   </tr>
   <tr *ngFor="let c of customers; index as i">
-    <td>{{i +1}}</td>
+    <td>{{i + 1}}</td>
     <td>{{c.name}}</td>
     <td>{{c.idCard}}</td>
     <td>{{c.address}}</td>
     <td>{{c.email}}</td>
-    <td   >
+    <td>
       <ng-container *ngIf="c.gender">
         Nam
-      </ng-container  >
+      </ng-container>
       <ng-container *ngIf="!c.gender">
         Nữ
       </ng-container>
 
     </td>
-    <td>{{c.phone}}</td>
-    <td>{{c.birthday}}</td>
+    <td>{{c.phoneNumber}}</td>
+    <td>{{c.dayOfBrith}}</td>
     <td>{{c.customerType.name}}</td>
     <td>
-      <button class="btn btn-outline-warning">Delete</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" (click)="delete(c.id, c.name)"  data-bs-target="#exampleModal">
+    Delete
+      </button>
     </td>
     <td>
-      <button class="btn btn-outline-warning">edit</button>
+      <a class="btn btn-outline-warning" routerLink="/customer/edit/{{c.id}}">edit</a>
     </td>
   </tr>
 </table>
+
+<!-- Modal delete-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xóa<span>{{name}}</span></p>
+        <p id="nameDelete"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="deleteNow()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

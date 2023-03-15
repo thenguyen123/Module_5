@@ -1,0 +1,21 @@
+
+<table class="table table-secondary">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Vote</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let st of students;index as i" (click)="change(st)" >
+    <td scope="row">{{i}}</td>
+    <td>{{st.name}}</td>
+    <td>{{st.sroce}}</td>
+    <td><app-child [vote]="st.vote"></app-child></td>
+  </tr>
+  </tbody>
+</table>
+<app-detail [student]="studentDetail" ></app-detail>
+<app-create (onCreate)="createStudent($event)"></app-create>

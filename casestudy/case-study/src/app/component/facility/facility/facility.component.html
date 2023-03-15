@@ -1,4 +1,4 @@
-<app-header></app-header>
+
 <div class="row">
   <div class="col 12 col-md-3 col-sm-6" *ngFor="let f of facility">
     <div class="card" style="width: 18rem;">
@@ -11,9 +11,33 @@
         <p>Số người tối đa : <span>{{f.maxPeople}}</span></p>
         <button type="button" class="btn btn-primary" data-bs-target="#edit" data-bs-toggle="modal">Create
         </button>
-
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"  (click)="delete(f.id, f.name)"   data-bs-target="#exampleModal">
+          Delete
+        </button>
       </div>
     </div>
   </div>
 </div>
-<app-footer></app-footer>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn có muốn xóa <span style="color: lightskyblue">{{name}}</span></p>
+        <p id="nameDelete"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="action()">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+

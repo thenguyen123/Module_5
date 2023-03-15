@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Facility} from '../../../model/facility/facility';
+import {FacilityService} from '../../../service/facility/facility.service';
 
 @Component({
   selector: 'app-facility',
@@ -7,36 +8,32 @@ import {Facility} from '../../../model/facility/facility';
   styleUrls: ['./facility.component.css']
 })
 export class FacilityComponent implements OnInit {
-  facility: Facility[] = [
-    {
-      img: '../../../assets/img/kien-truc-furama-resort-da-nang-1024x680.jpg',
-      name: 'room',
-      cost: 100000,
-      area: 100,
-      maxPeople: 3
-    },
-    {
-      img: '../../../assets/img/kien-truc-furama-resort-da-nang-1024x680.jpg',
-      name: 'Villa',
-      cost: 1000020,
-      area: 100,
-      maxPeople: 3
-    },
-    {
-      img: '../../../assets/img/kien-truc-furama-resort-da-nang-1024x680.jpg',
-      name: 'Villa',
-      cost: 1000020,
-      area: 100,
-      maxPeople: 3
-    }
-  ]
+  facility?: Facility[];
+  id?: number;
+  name?: string;
 
-  ;
-
-  constructor() {
+  constructor(private facilityService: FacilityService) {
   }
 
   ngOnInit(): void {
+    this.getAll();
   }
 
+  getAll() {
+    this.facilityService.getAll().subscribe(param => {
+      this.facility = param;
+    });
+  }
+
+  delete(id: number, name: string) {
+    this.id = id;
+    this.name = name;
+  }
+
+  action() {
+    this.facilityService.delete(this.id).subscribe(() => {
+      alert('thành công');
+      this.ngOnInit();
+    });
+  }
 }

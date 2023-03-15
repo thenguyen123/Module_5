@@ -10,7 +10,7 @@ export interface Facility {
   maxPeople?: number;
   rentType?: RentTypes;
   facilityType?: FacilityTypes;
-  standRoom?: string;
+  standardRoom?: string;
   descriptionOtherConvenience?: string;
   poolArea?: number;
   numberOfFloors?: number;

@@ -1,0 +1,47 @@
+<!--<form #student="ngForm">-->
+<!--  <div class="form-group">-->
+<!--    <label for="name">Name</label>-->
+<!--    <input type="text"-->
+<!--           class="form-control" ngModel name="name" id="name" aria-describedby="helpId" placeholder="" required-->
+<!--           pattern="^[^0-9]+$">-->
+<!--    <p *ngIf="student.controls.name?.touched && student.controls.name?.errors?.required">Khoogn được để trống nha con</p>-->
+<!--    <p *ngIf="student.controls.name?.dirty && student.controls.name?.errors?.pattern">Tên mà có số được à?</p>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="Id">Id</label>-->
+<!--    <input type="number"-->
+<!--           class="form-control" ngModel name="id" id="id" aria-describedby="helpId" placeholder="" pattenr="^[0-9]+$">-->
+<!--    <p *ngIf="student.controls.id?.dirty && student.controls.id?.errors?.pattern"></p>-->
+<!--  </div>-->
+<!--  <div class="form-group">-->
+<!--    <label for="score">Score</label>-->
+<!--    <input type="number"-->
+<!--           class="form-control" ngModel name="sroce" id="score" aria-describedby="helpId" placeholder="">-->
+<!--  </div>-->
+<!--  <button class=" btn btn-outline-warning" (click)="create(student)">Save</button>-->
+<!--</form>-->
+<form [formGroup]="studentCreate" (ngSubmit)="create()">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text"
+           class="form-control" formControlName="name" id="name" aria-describedby="helpId" placeholder="">
+    <p *ngIf="studentCreate.controls.name?.touched && studentCreate.controls.name?.errors?.required">Khoogn được để trống nha con</p>
+    <p *ngIf="studentCreate.controls.name?.touched && studentCreate.controls.name?.errors?.pattern">Tên mà có số được à?</p>
+  </div>
+  <div formGroupName="myGroup" >
+  <div class="form-group">
+    <label for="Id">Id</label>
+    <input type="number"
+           class="form-control" formControlName="id" id="id" aria-describedby="helpId" placeholder="" >
+    <p *ngIf="studentCreate.controls.myGroup?.touched && studentCreate.controls.myGroup?.errors?.invalidId">Không được âm</p>
+  </div>
+  <div class="form-group">
+    <label for="score">Score</label>
+    <input type="number"
+           class="form-control" formControlName="sroce" id="score" aria-describedby="helpId" placeholder="">
+    <p *ngIf="studentCreate.controls.myGroup?.touched && studentCreate.controls.myGroup?.errors?.invalidScore">không được âm </p>
+
+  </div>
+  </div>
+  <button [disabled]="studentCreate.invalid" class=" btn btn-outline-warning" >Save</button>
+</form>
