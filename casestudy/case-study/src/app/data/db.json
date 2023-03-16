@@ -1,20 +1,6 @@
 {
   "customers": [
     {
-      "id": 1,
-      "name": "Nguyễn Văn Nga",
-      "birthday": "22-12-2001",
-      "idCard": "26535457",
-      "phone": "093743553",
-      "email": "nguyen@gmail.com",
-      "gender": true,
-      "address": "huế",
-      "customerType": {
-        "id": 2,
-        "name": "Bronze"
-      }
-    },
-    {
       "id": 2,
       "name": "Nguyễn Ngọc Sơn",
       "birthday": "01-02-1999",
@@ -81,7 +67,6 @@
       "name": "Bronze"
     }
   ],
-
   "rentTypes": [
     {
       "id": 1,
@@ -114,7 +99,6 @@
       "name": "room"
     }
   ],
-
   "facilities": [
     {
       "id": 1,

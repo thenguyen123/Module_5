@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../../../model/customer/customer';
 import {CustomerService} from '../../../service/customer/customer.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-customer',
@@ -10,7 +11,9 @@ import {CustomerService} from '../../../service/customer/customer.service';
 export class CustomerComponent implements OnInit {
   customers: Customer [];
   name: string;
-id: number;
+  id: number;
+  page = 0;
+
   constructor(private  customerService: CustomerService) {
   }
 
@@ -32,8 +35,22 @@ id: number;
 
   deleteNow() {
     this.customerService.delete(this.id).subscribe(() => {
-      alert('Thành công');
+      Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'success',
+        confirmButtonText: 'Cool'
+      });
       this.ngOnInit();
     });
+  }
+
+  search(value: string) {
+    if (value !== '') {
+      this.customerService.search( value ).subscribe(param => {
+        this.customers = param;
+      });
+    }
+    this.findAll();
   }
 }

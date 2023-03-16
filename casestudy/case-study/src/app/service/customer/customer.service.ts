@@ -30,4 +30,7 @@ export class CustomerService {
   delete(id): Observable<Customer> {
     return this.http.delete('http://localhost:3000/customers/' + id);
   }
+search(name: string): Observable<Customer[]> {
+    return  this.http.get<Customer[]>('http://localhost:3000/customers?name_like=' + name);
+}
 }

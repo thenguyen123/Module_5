@@ -16,7 +16,7 @@
 
         <span class="text">Day Of Brith</span>
         <input class="form-control" type="date" formControlName="birthday" >
-        <p *ngIf="customerForm.controls.birthday.touched&&customerForm.controls.birthday?.errors.required">Không được để trống </p>
+        <p *ngIf="customerForm.controls.dayOfBirth.touched&&customerForm.controls.dayOfBirth?.errors.required">Không được để trống </p>
 
         <br>
         <span class="text">Id Card</span>
@@ -26,9 +26,9 @@
 
         <br>
         <span class="text">Phone Number</span>
-        <input class="form-control" type="text"  formControlName="phone">
-        <p *ngIf="customerForm.controls.phone.touched&&customerForm.controls.phone.errors.required">Không được để trống </p>
-        <p *ngIf="customerForm.controls.phone.touched&&customerForm.controls.phone.errors.pattern">Số điện thoại chưa  đúng định dạng </p>
+        <input class="form-control" type="text"  formControlName="phoneNumber">
+        <p *ngIf="customerForm.controls.phoneNumber.touched&&customerForm.controls.phoneNumber.errors.required">Không được để trống </p>
+        <p *ngIf="customerForm.controls.phoneNumber.touched&&customerForm.controls.phoneNumber.errors.pattern">Số điện thoại chưa  đúng định dạng </p>
 
         <br>
         <span class="text">Email</span>

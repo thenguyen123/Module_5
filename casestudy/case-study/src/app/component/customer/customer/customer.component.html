@@ -1,4 +1,8 @@
 <a routerLink="/customer/create" class="btn btn-outline-warning">Create</a>
+<div>
+  <input type="text" #nameSearch>
+  <button (click)="search(nameSearch.value)">Search</button>
+</div>
 <table class="table table-primary">
   <tr>
     <th>STT</th>
@@ -13,7 +17,7 @@
     <th>Delete</th>
     <th>Edit</th>
   </tr>
-  <tr *ngFor="let c of customers; index as i">
+  <tr *ngFor="let c of customers | paginate: { itemsPerPage: 5, currentPage: page } ;index as i">
     <td>{{i + 1}}</td>
     <td>{{c.name}}</td>
     <td>{{c.idCard}}</td>
@@ -30,7 +34,7 @@
     </td>
     <td>{{c.phoneNumber}}</td>
     <td>{{c.dayOfBrith}}</td>
-    <td>{{c.customerType.name}}</td>
+    <td>.</td>
     <td>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary" data-bs-toggle="modal" (click)="delete(c.id, c.name)"  data-bs-target="#exampleModal">
@@ -42,7 +46,7 @@
     </td>
   </tr>
 </table>
-
+<pagination-controls (pageChange)="page = $event"></pagination-controls>
 <!-- Modal delete-->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

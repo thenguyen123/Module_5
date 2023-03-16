@@ -20,7 +20,7 @@ export class FacilityEditComponent implements OnInit {
       cost: new FormControl(this.facility.cost, [Validators.required, Validators.min(0)]),
       area: new FormControl(this.facility.area, [Validators.required, Validators.min(0)]),
       maxPeople: new FormControl(this.facility.maxPeople, [Validators.required, Validators.min(0)]),
-      standRoom: new FormControl(this.facility.standRoom, [Validators.required]),
+      standardRoom: new FormControl(this.facility.standardRoom, [Validators.required]),
       descriptionOtherConvenience: new FormControl(this.facility.descriptionOtherConvenience, [Validators.required]),
       poolArea: new FormControl(this.facility.poolArea, [Validators.min(0)]),
       numberOfFloors: new FormControl(this.facility.numberOfFloors, [Validators.min(0)]),

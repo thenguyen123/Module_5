@@ -21,7 +21,7 @@ export class FacilityCreateComponent implements OnInit {
       cost: new FormControl('', [Validators.required, Validators.min(0)]),
       area: new FormControl('', [Validators.required, Validators.min(0) ]),
       maxPeople: new FormControl('', [Validators.required, Validators.min(0)]),
-      standRoom: new FormControl('', [Validators.required]),
+      standardRoom: new FormControl('', [Validators.required]),
       descriptionOtherConvenience: new FormControl('', [Validators.required]),
       poolArea: new FormControl('', [Validators.min(0)]),
       numberOfFloors: new FormControl('', [Validators.min(0)]),

@@ -33,7 +33,6 @@ export class CustomerCreateComponent implements OnInit {
     });
   }
 
-
   customerSave() {
 
     this.customerNew = this.customer.value;
