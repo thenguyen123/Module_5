@@ -5,6 +5,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {Address} from '../model/address';
 import {Car} from '../model/car';
+import {CartypeService} from '../service/cartype.service';
+import {Cartype} from '../model/cartype';
 
 @Component({
   selector: 'app-editcar',
@@ -16,24 +18,25 @@ export class EditcarComponent implements OnInit {
   id: string;
   address: Address [];
   car: Car;
-
+  cartype: Cartype[];
   constructor(private carService: CarService,
               private addressService: AddressService,
               private activatedRoute: ActivatedRoute,
-              private rout: Router) {
+              private rout: Router,
+              private cartypeService: CartypeService ) {
   }
 
   ngOnInit(): void {
+    this.getAllCarType();
     this.getAllAddress();
     this.activatedRoute.paramMap.subscribe(param => {
       this.id = param.get('id');
       this.carService.findById(this.id).subscribe(item => {
-        // console.log(this.car);
-        // console.log(this.car[0].id);
-        // this.carService.findById(this.id);
+        console.log(this.car);
+        this.carService.findById(this.id);
         this.carForm = new FormGroup({
           id: new FormControl(item.id),
-          typeCar: new FormControl(item.carType, [Validators.required]),
+          carType: new FormControl(item.carType, [Validators.required]),
           name: new FormControl(item.name, [Validators.required]),
           departure: new FormControl('', [Validators.required]),
           destination: new FormControl('', [Validators.required]),
@@ -46,7 +49,11 @@ export class EditcarComponent implements OnInit {
     });
   }
 
-
+  getAllCarType() {
+    this.cartypeService.getAll().subscribe(param => {
+      this.cartype = param;
+    });
+  }
   getAllAddress() {
     this.addressService.getAllAddress().subscribe(param => {
       this.address = param;

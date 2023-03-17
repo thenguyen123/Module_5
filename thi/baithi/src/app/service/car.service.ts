@@ -29,6 +29,6 @@ export class CarService {
   }
 
   edit(id: string, car: Car): Observable<Car> {
-    return this.http.put<Car>('http://localhost:8080/api/car/update' , car);
+    return this.http.patch<Car>('http://localhost:8080/api/car/update' , car);
   }
 }

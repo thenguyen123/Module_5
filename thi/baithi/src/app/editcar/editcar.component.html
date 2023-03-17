@@ -2,14 +2,14 @@
   <div class="form-group">
     <label >Id</label>
     <input type="text"
-           class="form-control" formControlName="id" readonly >
+           class="form-control" formControlName="id" readonly  >
   </div>
   <div class="form-group">
     <label >Type Car</label>
-    <input type="text"
-           class="form-control" formControlName="typeCar">
-    <span *ngIf="carForm.controls?.typeCar.touched&&carForm.controls.typeCar?.errors?.required">Không được để trống</span>
-
+    <select formControlName="carType">
+      <option *ngFor="let c of cartype" [ngValue]="c">{{c.name}}</option>
+    </select>
+    <!--    <span *ngIf="carForm.controls?.typeCar.pristine&&carForm.controls.typeCar?.errors?.required">Không được để trống</span>-->
   </div>
   <div class="form-group">
     <label >Name Car</label>
@@ -23,14 +23,14 @@
     <select formControlName="departure">
       <option *ngFor="let a of address" [ngValue]="a">{{a.name}}</option>
     </select>
-    <span *ngIf="carForm.controls?.formAddress.pristine &&carForm.controls.formAddress?.errors?.required">Không được để trống</span>
+    <!--    <span *ngIf="carForm.controls?.formAddress.pristine &&carForm.controls.formAddress?.errors?.required">Không được để trống</span>-->
   </div>
   <div class="form-group">
     <label >To Address</label>
-    <select formControlName="toAddress">
+    <select formControlName="destination">
       <option *ngFor="let a of address" [ngValue]="a">{{a.name}}</option>
     </select>
-    <span *ngIf="carForm.controls?.toAddress.pristine&&carForm.controls.toAddress?.errors?.required">Không được để trống</span>
+    <!--    <span *ngIf="carForm.controls?.toAddress.pristine&&carForm.controls.toAddress?.errors?.required">Không được để trống</span>-->
 
   </div>
   <div class="form-group">
@@ -47,19 +47,20 @@
     <span *ngIf="carForm.controls?.formHour.touched&&carForm.controls.formHour?.errors?.required">Không được để trống</span>
 
   </div>
-   <div class="form-group">
+  <div class="form-group">
     <label >formHour</label>
     <input type="text"
            class="form-control" formControlName="formHour" >
-     <span *ngIf="carForm.controls?.formHour.touched&&carForm.controls.formHour?.errors?.required">Không được để trống</span>
+    <span *ngIf="carForm.controls?.formHour.touched&&carForm.controls.formHour?.errors?.required">Không được để trống</span>
 
-   </div>
-   <div class="form-group">
+  </div>
+  <div class="form-group">
     <label >email</label>
     <input type="email"
            class="form-control" formControlName="email">
-     <span *ngIf="carForm.controls?.email.touched&&carForm.controls.email?.errors?.required">Không được để trống</span>
-   </div>
-<button > save</button>
+    <span *ngIf="carForm.controls?.email.touched&&carForm.controls.email?.errors?.required">Không được để trống</span>
+  </div>
+  <button > save</button>
 </form>
+
 
