@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CarService implements  ICarService{
@@ -18,7 +19,10 @@ public class CarService implements  ICarService{
 
     @Override
     public void save(Car car) {
-      carRepository.save(car);
+      carRepository.create(car.getId(),car.getEmail(),car.getFormHour(),car.getName(),car.getPhoneNumber(),
+      car.getToHour(),car.getCarType().getId(),car.getDeparture().getId(),
+        car.getDestination().getId());
+//carRepository.save(car);
     }
 
     @Override
@@ -28,12 +32,14 @@ public class CarService implements  ICarService{
 
     @Override
     public Car findById(String id) {
-        carRepository.findById(id);
-        return null;
+
+        return   carRepository.findById(id).orElse(null);
     }
 
     @Override
     public void update(Car car) {
-        carRepository.save(car);
+        carRepository.edit(car.getId(),car.getEmail(),car.getFormHour(),car.getName(),car.getPhoneNumber(),
+                car.getToHour(),car.getCarType().getId(),car.getDeparture().getId(),
+                car.getDestination().getId());
     }
 }

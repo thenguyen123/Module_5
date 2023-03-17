@@ -37,13 +37,14 @@ public class CarController {
     }
     @GetMapping("/find/{id}")
     public ResponseEntity findById(@PathVariable String id){
+
       Car car  = iCarService.findById(id);
       if(car == null){
           return new ResponseEntity(HttpStatus.NO_CONTENT);
       }
      return new ResponseEntity(car, HttpStatus.OK);
     }
-    @PutMapping("/update")
+    @PatchMapping("/update")
     public ResponseEntity update(@RequestBody Car car){
         iCarService.update(car);
         return new ResponseEntity<>(HttpStatus.OK);

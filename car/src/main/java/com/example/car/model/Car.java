@@ -28,6 +28,14 @@ public class Car {
     public Car() {
     }
 
+    public boolean isDelete() {
+        return isDelete;
+    }
+
+    public void setDelete(boolean delete) {
+        isDelete = delete;
+    }
+
     public Car(String id, String name, String email, String toHour, String formHour, String phoneNumber, boolean isDelete, CarType carType, Address departure, Address destination) {
         this.id = id;
         this.name = name;
