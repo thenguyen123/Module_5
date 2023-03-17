@@ -1,0 +1,64 @@
+<a routerLink="/car/create">Create</a>
+<table class="table">
+  <thead>
+  <tr>
+    <th>tên xe</th>
+    <th>Số xe</th>
+    <th>Loại xe</th>
+    <th>điểm đến</th>
+    <th>điểm đi</th>
+    <th>số điện thoại</th>
+    <th>email</th>
+    <th>Giờ đi</th>
+    <th>Giờ đến</th>
+    <th>Xóa</th>
+    <th>Sửa</th>
+
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of cars ">
+    <td scope="row">{{car.name}}</td>
+    <td>{{car.id}}</td>
+    <td>{{car.carType.name}}</td>
+    <td>{{car.departure.name}}</td>
+    <td>{{car.departure.name}}</td>
+    <td>{{car.phoneNumber}}</td>
+    <td>{{car.email}}</td>
+    <td>{{car.formHour}}</td>
+    <td>{{car.toHour}}</td>
+    <td>
+      <button type="button" class="btn btn-primary " (click)="delete(car.id)" data-toggle="modal" data-target="#modelId">
+       delete
+      </button>
+    </td>
+    <td><a class="btn btn-primary " routerLink="/car/edit/{{car.id}}" >Sửa</a></td>
+
+  </tr>
+
+  </tbody>
+</table>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <p>Bạn có đồng ý xáo thông tin {{id}} không</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Không</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteNow()">có</button>
+      </div>
+    </div>
+  </div>
+</div>
